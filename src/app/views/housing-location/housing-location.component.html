@@ -1,1 +1,16 @@
-<p>housing-location works!</p>
+<section class="bg-rose-100 rounded-lg shadow-md hover:shadow-xl">
+  <img
+    class="w-full h-64 object-cover rounded-t-lg"
+    [src]="housingLocation.photo"
+    alt="Exterior photo of {{ housingLocation.name }}"
+    crossorigin
+  />
+  <div class="p-4">
+    <h2 class="text-xl font-semibold text-gray-800">
+      {{ housingLocation.name }}
+    </h2>
+    <p class="mt-2 text-gray-600">
+      {{ housingLocation.city }}, {{ housingLocation.state }}
+    </p>
+  </div>
+</section>

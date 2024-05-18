@@ -11,14 +11,14 @@ import { HousingLocation } from '../../models/housing-location.model';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  readonly baseUrl = 'https://angular.dev/assets/tutorials/common';
+  readonly baseUrl = 'https://img.kapook.com/u/pirawan/Travel2';
 
   housingLocation: HousingLocation = {
     id: 9999,
-    name: 'Test Home',
-    city: 'Test city',
-    state: 'ST',
-    photo: `${this.baseUrl}/example-house.jpg`,
+    name: 'นิวยอร์ก ซิตี้',
+    city: 'New York City',
+    state: 'USA',
+    photo: `${this.baseUrl}/NewYorkCity_Songquan%20Deng.jpg`,
     availableUnits: 99,
     wifi: true,
     laundry: false,
