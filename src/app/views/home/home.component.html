@@ -7,13 +7,26 @@
       style="outline: none"
     />
     <button
-      class="bg-rose-300 hover:bg-rose-400 text-white rounded-lg p-2 mx-1"
+      class="bg-purple-300 hover:bg-fuchsia-400 text-white rounded-lg p-2 mx-1"
     >
       Search
     </button>
   </form>
 </section>
 
+<!-- ส่งแบบ object เดียว { ... }
 <section class="w-full mx-auto mt-8">
   <app-housing-location [housingLocation]="housingLocation" />
+</section> 
+-->
+
+<!-- ส่งแบบหลาย object ใน array[ { ... }, { ... } ] โดยใช้ *ngFor -->
+<section
+  class="w-full mx-auto mt-8 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+  id="travel-location"
+>
+  <app-housing-location
+    *ngFor="let housingLocation of housingLocationList"
+    [housingLocation]="housingLocation"
+  ></app-housing-location>
 </section>
