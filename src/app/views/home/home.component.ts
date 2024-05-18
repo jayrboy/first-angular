@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import { HousingLocation } from '../../models/housinglocation.model';
+import { HousingLocation } from '../../models/housing-location.model';
 
 @Component({
   selector: 'app-home',
