@@ -1,0 +1,26 @@
+.brand-name {
+  border-bottom: 1px solid #ccc; /* กำหนดเส้นขอบบาง ๆ */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* กำหนดเงาบาง ๆ */
+  padding: 10px; /* เพิ่ม padding เพื่อความสวยงาม */
+}
+
+.brand-logo {
+  max-width: 9.2rem;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 3rem;
+  margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+}
+
+.content h1 {
+  margin-top: 1.75rem;
+}
+
+.content p {
+  margin-top: 1.5rem;
+}
