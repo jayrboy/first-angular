@@ -4,13 +4,29 @@ import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { HousingLocation } from '../../models/housing-location.model';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HousingLocationComponent],
+  imports: [
+    CommonModule,
+    HousingLocationComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule,
+  ],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
+  value = ' เมืองอิสตันบูล';
+
   readonly baseUrl = 'https://img.kapook.com/u/pirawan/Travel2';
 
   housingLocationList: HousingLocation[] = [
