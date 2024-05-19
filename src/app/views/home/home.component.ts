@@ -26,11 +26,29 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  value = ' เมืองอิสตันบูล';
-  housingLocationList: HousingLocation[] = [];
+  value: string = 'Istanbul';
+  housingLocationList: HousingLocation[];
   housingService: HousingService = inject(HousingService);
+  filteredLocationList: HousingLocation[] = [];
 
   constructor() {
     this.housingLocationList = this.housingService.getAllHousingLocations();
+  }
+
+  ngOnInit(): void {
+    this.filteredLocationList = this.housingLocationList;
+  }
+
+  filterResults(text: string) {
+    console.log(text);
+
+    if (!text) {
+      this.filteredLocationList = this.housingLocationList;
+      return;
+    }
+    this.filteredLocationList = this.housingLocationList.filter(
+      (housingLocation) =>
+        housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+    );
   }
 }
