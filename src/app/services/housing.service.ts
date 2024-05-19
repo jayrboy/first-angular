@@ -6,6 +6,7 @@ import { HousingLocation } from '../models/housinglocation.model';
 })
 export class HousingService {
   readonly baseUrl = 'https://img.kapook.com/u/pirawan/Travel2';
+  readonly apiUrl = 'https://your-backend-api-url.com/api/applications'; // URL ของ backend server
 
   housingLocationList: HousingLocation[] = [
     {
@@ -119,5 +120,20 @@ export class HousingService {
     return this.housingLocationList.find(
       (housingLocation) => housingLocation.id === id
     );
+  }
+
+  submitApplication(firstName: string, lastName: string, email: string) {
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    // });
+
+    const body = {
+      firstName,
+      lastName,
+      email,
+    };
+
+    // return this.http.post<any>(this.apiUrl, body, { headers });
+    return console.log(body);
   }
 }

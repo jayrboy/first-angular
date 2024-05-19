@@ -1,38 +1,10 @@
 <!-- <p>details works! {{ housingLocationId }}</p> -->
 
-<!-- <article class="bg-white" id="detail">
-  <div class="grid md:grid-cols-2 align-element items-center gap-8">
-    <section>
-      <h2>{{ housingLocation?.name }}</h2>
-      <p>{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
-      <br />
-      <h2>About this housing location</h2>
-      <ul>
-        <li>Units available: {{ housingLocation?.availableUnits }}</li>
-        <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
-        <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
-      </ul>
-    </section>
-
-    <img
-      [src]="housingLocation?.photo"
-      alt="Exterior photo of {{ housingLocation?.name }}"
-      crossorigin
-    />
-  </div>
-</article> -->
-
-<!-- <article
-  class="bg-gradient-to-r from-blue-500 to-teal-400 text-white p-8 rounded-lg shadow-lg"
-  id="detail"
-> -->
 <article
-  class="bg-gradient-to-r from-rose-500 to-purple-500 text-white rounded-lg shadow-lg"
+  class="bg-gradient-to-r from-white to-violet-400 text-gray-700 rounded-lg shadow-lg"
   id="detail"
 >
-  <div
-    class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 items-center gap-8"
-  >
+  <div class="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 items-center">
     <section class="p-4">
       <h2 class="text-3xl font-bold">
         <mat-icon class="text-violet-500"> location_on </mat-icon>&nbsp;{{
@@ -46,23 +18,81 @@
       <h2 class="text-2xl font-semibold">About this housing location</h2>
       <ul class="mt-4 space-y-2">
         <li class="flex items-center">
-          <mat-icon class="w-6 h-6 text-green-500 mr-2">people</mat-icon>
+          <mat-icon class="w-6 h-6 text-gray-600 mr-2">people</mat-icon>
           Units available: {{ housingLocation?.availableUnits }}
         </li>
         <li class="flex items-center">
-          <mat-icon class="w-6 h-6 text-green-500 mr-2">wifi</mat-icon>
+          <mat-icon class="w-6 h-6 text-sky-500 mr-2">wifi</mat-icon>
           Does this location have wifi: {{ housingLocation?.wifi }}
         </li>
         <li class="flex items-center">
-          <mat-icon class="w-6 h-6 text-green-500 mr-2">dry_cleaning</mat-icon>
+          <mat-icon class="w-6 h-6 text-blue-600 mr-2">dry_cleaning</mat-icon>
           Does this location have laundry: {{ housingLocation?.laundry }}
         </li>
       </ul>
+
+      <!-- Form -->
+      <h2 class="mt-5">Apply now to live here</h2>
+      <form [formGroup]="applyForm" (submit)="submitApplication()">
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label for="first-name">First Name</mat-label>
+                <input matInput formControlName="firstName" type="text" />
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <mat-label for="last-name">Last Name</mat-label>
+                <input
+                  matInput
+                  id="last-name"
+                  type="text"
+                  formControlName="lastName"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-label for="email">Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  placeholder="Ex. pat@example.com"
+                  id="email"
+                  formControlName="email"
+                />
+                @if (applyForm.get('email')?.hasError('email') &&
+                !applyForm.get('email')?.hasError('required')) {
+                <mat-error>Please enter a valid email</mat-error>
+                } @if (applyForm.get('email')?.hasError('required')) {
+                <mat-error>Email is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
+            </td>
+            <td>
+              <button
+                mat-flat-button
+                type="submit"
+                color="primary"
+                style="height: 55px"
+                class="mb-6"
+              >
+                Apply now
+              </button>
+            </td>
+          </tr>
+        </table>
+      </form>
     </section>
 
     <img
       [src]="housingLocation?.photo"
       alt="Exterior photo of {{ housingLocation?.name }}"
+      class="h-full w-full object-cover rounded-lg"
     />
   </div>
 </article>
