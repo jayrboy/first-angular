@@ -29,3 +29,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 # Initial My Documentation
 
 In `index.html`, replace the <title> element with this code to update the title of the app.
+
+# Test JSON
+
+`json-server --watch db.json`

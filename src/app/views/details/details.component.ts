@@ -43,11 +43,13 @@ export class DetailsComponent {
   });
 
   constructor() {
-    this.housingLocationId = Number(this.route.snapshot.params['id']);
+    const housingLocationId = Number(this.route.snapshot.params['id']);
 
-    this.housingLocation = this.housingService.getHousingLocationById(
-      this.housingLocationId
-    );
+    this.housingService
+      .getHousingLocationById(housingLocationId)
+      .then((housingLocation) => {
+        this.housingLocation = housingLocation;
+      });
   }
 
   submitApplication() {
